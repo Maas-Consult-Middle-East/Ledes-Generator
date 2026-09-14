@@ -1,9 +1,9 @@
 [project]
-name = "ledes_generator"
+name = "ledes"
 authors = [
-    { name = "Salman Adayatt", email = "frappe@maasconsult.co"}
+    { name = "Salman Adayatt", email = "salmanadayatt731@gmail.com"}
 ]
-description = "Ledes Generator App for ERPNext"
+description = "This is an app for Ledes text generating in Frappe"
 requires-python = ">=3.10"
 readme = "README.md"
 dynamic = ["version"]

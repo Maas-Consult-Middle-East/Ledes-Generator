@@ -1,8 +1,8 @@
-app_name = "ledes_generator"
-app_title = "Ledes Generator"
+app_name = "ledes"
+app_title = "Ledes"
 app_publisher = "Salman Adayatt"
-app_description = "Ledes Generator App for ERPNext"
-app_email = "frappe@maasconsult.co"
+app_description = "This is an app for Ledes text generating in Frappe"
+app_email = "salmanadayatt731@gmail.com"
 app_license = "mit"
 
 # Apps
@@ -13,11 +13,11 @@ app_license = "mit"
 # Each item in the list will be shown as an app in the apps page
 # add_to_apps_screen = [
 # 	{
-# 		"name": "ledes_generator",
-# 		"logo": "/assets/ledes_generator/logo.png",
-# 		"title": "Ledes Generator",
-# 		"route": "/ledes_generator",
-# 		"has_permission": "ledes_generator.api.permission.has_app_permission"
+# 		"name": "ledes",
+# 		"logo": "/assets/ledes/logo.png",
+# 		"title": "Ledes",
+# 		"route": "/ledes",
+# 		"has_permission": "ledes.api.permission.has_app_permission"
 # 	}
 # ]
 
@@ -25,15 +25,15 @@ app_license = "mit"
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/ledes_generator/css/ledes_generator.css"
-# app_include_js = "/assets/ledes_generator/js/ledes_generator.js"
+# app_include_css = "/assets/ledes/css/ledes.css"
+# app_include_js = "/assets/ledes/js/ledes.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/ledes_generator/css/ledes_generator.css"
-# web_include_js = "/assets/ledes_generator/js/ledes_generator.js"
+# web_include_css = "/assets/ledes/css/ledes.css"
+# web_include_js = "/assets/ledes/js/ledes.js"
 
 # include custom scss in every website theme (without file extension ".scss")
-# website_theme_scss = "ledes_generator/public/scss/website"
+# website_theme_scss = "ledes/public/scss/website"
 
 # include js, css files in header of web form
 # webform_include_js = {"doctype": "public/js/doctype.js"}
@@ -43,7 +43,7 @@ app_license = "mit"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
+doctype_js = {"Sales Invoice" : "public/js/sales_invoice.js"}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -51,7 +51,7 @@ app_license = "mit"
 # Svg Icons
 # ------------------
 # include app icons in desk
-# app_include_icons = "ledes_generator/public/icons.svg"
+# app_include_icons = "ledes/public/icons.svg"
 
 # Home Pages
 # ----------
@@ -75,49 +75,43 @@ app_license = "mit"
 
 # add methods and filters to jinja environment
 # jinja = {
-# 	"methods": "ledes_generator.utils.jinja_methods",
-# 	"filters": "ledes_generator.utils.jinja_filters"
+# 	"methods": "ledes.utils.jinja_methods",
+# 	"filters": "ledes.utils.jinja_filters"
 # }
 
 # Installation
 # ------------
 
-# before_install = "ledes_generator.install.before_install"
-# after_install = "ledes_generator.install.after_install"
+# before_install = "ledes.install.before_install"
+# after_install = "ledes.install.after_install"
 
 # Uninstallation
 # ------------
 
-# before_uninstall = "ledes_generator.uninstall.before_uninstall"
-# after_uninstall = "ledes_generator.uninstall.after_uninstall"
+# before_uninstall = "ledes.uninstall.before_uninstall"
+# after_uninstall = "ledes.uninstall.after_uninstall"
 
 # Integration Setup
 # ------------------
 # To set up dependencies/integrations with other apps
 # Name of the app being installed is passed as an argument
 
-# before_app_install = "ledes_generator.utils.before_app_install"
-# after_app_install = "ledes_generator.utils.after_app_install"
+# before_app_install = "ledes.utils.before_app_install"
+# after_app_install = "ledes.utils.after_app_install"
 
 # Integration Cleanup
 # -------------------
 # To clean up dependencies/integrations with other apps
 # Name of the app being uninstalled is passed as an argument
 
-# before_app_uninstall = "ledes_generator.utils.before_app_uninstall"
-# after_app_uninstall = "ledes_generator.utils.after_app_uninstall"
+# before_app_uninstall = "ledes.utils.before_app_uninstall"
+# after_app_uninstall = "ledes.utils.after_app_uninstall"
 
 # Desk Notifications
 # ------------------
 # See frappe.core.notifications.get_notification_config
 
-# notification_config = "ledes_generator.notifications.get_notification_config"
-
-# Awesome Bar
-# -----------
-# Extra search results: list of dicts with label, description, route, index.
-# route: ["List", "ToDo"], "/desk/docs/some/page", or "https://example.com"
-# awesomebar_search = ["ledes_generator.search.awesomebar_results"]
+# notification_config = "ledes.notifications.get_notification_config"
 
 # Permissions
 # -----------
@@ -156,39 +150,39 @@ app_license = "mit"
 
 # scheduler_events = {
 # 	"all": [
-# 		"ledes_generator.tasks.all"
+# 		"ledes.tasks.all"
 # 	],
 # 	"daily": [
-# 		"ledes_generator.tasks.daily"
+# 		"ledes.tasks.daily"
 # 	],
 # 	"hourly": [
-# 		"ledes_generator.tasks.hourly"
+# 		"ledes.tasks.hourly"
 # 	],
 # 	"weekly": [
-# 		"ledes_generator.tasks.weekly"
+# 		"ledes.tasks.weekly"
 # 	],
 # 	"monthly": [
-# 		"ledes_generator.tasks.monthly"
+# 		"ledes.tasks.monthly"
 # 	],
 # }
 
 # Testing
 # -------
 
-# before_tests = "ledes_generator.install.before_tests"
+# before_tests = "ledes.install.before_tests"
 
 # Overriding Methods
 # ------------------------------
 #
 # override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "ledes_generator.event.get_events"
+# 	"frappe.desk.doctype.event.event.get_events": "ledes.event.get_events"
 # }
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
 # along with any modifications made in other Frappe apps
 # override_doctype_dashboards = {
-# 	"Task": "ledes_generator.task.get_dashboard_data"
+# 	"Task": "ledes.task.get_dashboard_data"
 # }
 
 # exempt linked doctypes from being automatically cancelled
@@ -202,13 +196,13 @@ app_license = "mit"
 
 # Request Events
 # ----------------
-# before_request = ["ledes_generator.utils.before_request"]
-# after_request = ["ledes_generator.utils.after_request"]
+# before_request = ["ledes.utils.before_request"]
+# after_request = ["ledes.utils.after_request"]
 
 # Job Events
 # ----------
-# before_job = ["ledes_generator.utils.before_job"]
-# after_job = ["ledes_generator.utils.after_job"]
+# before_job = ["ledes.utils.before_job"]
+# after_job = ["ledes.utils.after_job"]
 
 # User Data Protection
 # --------------------
@@ -238,7 +232,7 @@ app_license = "mit"
 # --------------------------------
 
 # auth_hooks = [
-# 	"ledes_generator.auth.validate"
+# 	"ledes.auth.validate"
 # ]
 
 # Automatically update python controller files with type annotations for this app.
@@ -253,3 +247,11 @@ app_license = "mit"
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
 
+fixtures = [
+    {
+        "dt": "Custom Field",
+        "filters": [
+            ["module", "=", "Ledes"]
+        ]
+    }
+]
