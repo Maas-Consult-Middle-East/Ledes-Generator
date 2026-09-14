@@ -1,6 +1,6 @@
-### Ledes Generator
+### Ledes
 
-Ledes Generator App for ERPNext
+This is an app for Ledes text generating in Frappe
 
 ### Installation
 
@@ -9,7 +9,7 @@ You can install this app using the [bench](https://github.com/frappe/bench) CLI:
 ```bash
 cd $PATH_TO_YOUR_BENCH
 bench get-app $URL_OF_THIS_REPO --branch develop
-bench install-app ledes_generator
+bench install-app ledes
 ```
 
 ### Contributing
@@ -17,7 +17,7 @@ bench install-app ledes_generator
 This app uses `pre-commit` for code formatting and linting. Please [install pre-commit](https://pre-commit.com/#installation) and enable it for this repository:
 
 ```bash
-cd apps/ledes_generator
+cd apps/ledes
 pre-commit install
 ```
 
@@ -39,3 +39,6 @@ This app can use GitHub Actions for CI. The following workflows are configured:
 ### License
 
 mit
+# Ledes
+# Ledes-Generator
+# Ledes-Generator
