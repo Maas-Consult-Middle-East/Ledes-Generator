@@ -1,0 +1,48 @@
+{
+ "doctype": "DocType",
+ "name": "LEDES Settings",
+ "module": "Ledes",
+ "issingle": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "default_invoice_description",
+  "vat_expense_code",
+  "vat_description"
+ ],
+ "fields": [
+  {
+   "fieldname": "default_invoice_description",
+   "label": "Default Invoice Description",
+   "fieldtype": "Small Text",
+   "default": "final"
+  },
+  {
+   "fieldname": "vat_expense_code",
+   "label": "VAT Expense Code",
+   "fieldtype": "Data",
+   "default": "E125",
+   "reqd": 1
+  },
+  {
+   "fieldname": "vat_description",
+   "label": "VAT Description",
+   "fieldtype": "Data",
+   "default": "Foreign VAT Charges",
+   "reqd": 1
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1
+  },
+  {
+   "role": "Accounts Manager",
+   "read": 1,
+   "write": 1
+  }
+ ],
+ "track_changes": 1
+}

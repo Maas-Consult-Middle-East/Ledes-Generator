@@ -169,5 +169,59 @@
   "translatable": 1,
   "unique": 0,
   "width": null
+ },
+ {
+  "doctype": "Custom Field",
+  "dt": "Customer",
+  "name": "Customer-custom_ledes_client_id",
+  "fieldname": "custom_ledes_client_id",
+  "label": "LEDES Client ID",
+  "insert_after": "customer_name",
+  "fieldtype": "Data",
+  "module": "Ledes"
+ },
+ {
+  "doctype": "Custom Field",
+  "dt": "Company",
+  "name": "Company-custom_ledes_law_firm_id",
+  "fieldname": "custom_ledes_law_firm_id",
+  "label": "LEDES Law Firm ID",
+  "insert_after": "company_name",
+  "fieldtype": "Data",
+  "module": "Ledes"
+ },
+ {
+  "doctype": "Custom Field",
+  "dt": "Employee",
+  "name": "Employee-custom_timekeeper_classification",
+  "fieldname": "custom_timekeeper_classification",
+  "label": "Timekeeper Classification",
+  "insert_after": "custom_timekeeper_id",
+  "fieldtype": "Data",
+  "module": "Ledes"
+ },
+ {
+  "doctype": "Custom Field",
+  "dt": "Sales Invoice Item",
+  "name": "Sales Invoice Item-custom_ledes_type",
+  "fieldname": "custom_ledes_type",
+  "label": "LEDES Type",
+  "insert_after": "description",
+  "fieldtype": "Select",
+  "module": "Ledes",
+  "options": "\nF\nE\nIF\nIE",
+  "description": "Leave empty to infer E from an expense code, otherwise F."
+ },
+ {
+  "doctype": "Custom Field",
+  "dt": "Sales Invoice Item",
+  "name": "Sales Invoice Item-custom_ledes_adjustment_amount",
+  "fieldname": "custom_ledes_adjustment_amount",
+  "label": "LEDES Adjustment Amount",
+  "insert_after": "custom_ledes_type",
+  "fieldtype": "Currency",
+  "module": "Ledes",
+  "options": "currency",
+  "default": "0"
  }
 ]

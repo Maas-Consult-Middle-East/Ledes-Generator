@@ -91,10 +91,22 @@ def generate_ledes_sales_invoice_txt(sales_invoice):
             return "0.00"
 
 
-    client_id = "589"
+    def require_value(value, source):
+        if not clean_text(value):
+            frappe.throw(f"Set {source} before exporting LEDES.")
+        return value
 
-    if not client_id:
-        client_id = "CLIENT_ID_PLACEHOLDER"
+    settings = frappe.get_single("LEDES Settings")
+    client_id = require_value(
+        get_link_value("Customer", doc.customer, ["custom_ledes_client_id"]),
+        f"LEDES Client ID on Customer {doc.customer}",
+    )
+    law_firm_id = require_value(
+        get_link_value("Company", doc.company, ["custom_ledes_law_firm_id"]),
+        f"LEDES Law Firm ID on Company {doc.company}",
+    )
+    vat_expense_code = require_value(settings.get("vat_expense_code"), "VAT Expense Code in LEDES Settings")
+    vat_description = require_value(settings.get("vat_description"), "VAT Description in LEDES Settings")
 
     invoice_date = frappe.utils.formatdate(
         doc.posting_date,
@@ -139,23 +151,13 @@ def generate_ledes_sales_invoice_txt(sales_invoice):
                 "custom_ledes_invoice_description",
                 "remarks"
             ],
-            "final"
+            settings.get("default_invoice_description") or ""
         )
     )
 
-    law_firm_matter_id = get_doc_value(
-        doc,
-        [
-            "custom_law_firm_matter_id",
-            "custom_ledes_law_firm_matter_id"
-        ],
-        ""
-    )
-
-    client_matter_id = get_doc_value(
-        doc,
-        ["custom_your_financial_ref"],
-        "CLIENT_MATTER_ID_PLACEHOLDER"
+    client_matter_id = require_value(
+        get_doc_value(doc, ["custom_your_financial_ref"]),
+        "Your Financial Ref on the Sales Invoice",
     )
 
     employee = frappe.db.get_value(
@@ -179,7 +181,10 @@ def generate_ledes_sales_invoice_txt(sales_invoice):
         "full_name"
     ) or ""
 
-    timekeeper_classification = "OT"
+    timekeeper_classification = require_value(
+        get_link_value("Employee", employee, ["custom_timekeeper_classification"]),
+        f"Timekeeper Classification on the Employee linked to invoice creator {doc.owner}",
+    )
 
     law_firm_matter_id = get_doc_value(
         doc,
@@ -187,7 +192,6 @@ def generate_ledes_sales_invoice_txt(sales_invoice):
         ""
     )
 
-    law_firm_id = "A00000856"
 
     headers = [
         "INVOICE_DATE",
@@ -272,10 +276,10 @@ def generate_ledes_sales_invoice_txt(sales_invoice):
                 line_type = "F"
 
         if not line_task_code and not line_expense_code:
-            line_task_code = "TASK_CODE_PLACEHOLDER"
+            require_value(line_task_code, f"Task Code on Item {item.item_code}")
 
         if not line_activity_code and not line_expense_code:
-            line_activity_code = "A101_PLACEHOLDER"
+            require_value(line_activity_code, f"Activity Code on Item {item.item_code}")
 
         line_description = frappe.utils.strip_html(
             get_doc_value(
@@ -285,9 +289,11 @@ def generate_ledes_sales_invoice_txt(sales_invoice):
                     "item_name",
                     "item_code"
                 ],
-                "LINE_DESCRIPTION_PLACEHOLDER"
+                ""
             )
         )
+
+        require_value(line_description, f"Description on invoice row {line_no}")
 
         line_total = "%.2f" % frappe.utils.flt(item.amount)
 
@@ -356,10 +362,10 @@ def generate_ledes_sales_invoice_txt(sales_invoice):
         vat_amount,                    
         invoice_date,                  
         "",                            
-        "E125",                        
+        clean_text(vat_expense_code),
         "",                            
         clean_text(timekeeper_id),
-        "Foreign VAT Charges",         
+        clean_text(vat_description),
         clean_text(law_firm_id),
         vat_amount,                    
         clean_text(timekeeper_name),
