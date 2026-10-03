@@ -77,3 +77,29 @@ Run standalone export regression tests with:
 ```bash
 python3 -m unittest discover -s apps/ledes/tests -v
 ```
+
+### Installing the fields on another site
+
+Ledes declares ERPNext as a required app and ships all 15 canonical custom fields
+in `ledes/fixtures/custom_field.json`. Frappe imports these fixtures during app
+installation and migration. LEDES Settings ships as a standard Single DocType.
+No manual Customize Form steps or fixture export are needed on the destination.
+
+With the app code available on the destination bench, run:
+
+```bash
+bench --site <site> install-app ledes
+# For a site where Ledes is already installed:
+bench --site <site> migrate
+```
+
+The packaged fields cover Customer (client ID), Company (law firm ID), Employee
+(timekeeper ID and classification), Item (task and activity codes), Sales Invoice
+(Our Reference, Your Financial Ref, billing start/end dates, LEDES description),
+and Sales Invoice Item (type, adjustment amount, line date, expense code).
+The export still recognizes legacy alternate fieldnames; duplicate fields for
+those aliases are intentionally not created.
+
+Only field definitions and Settings defaults are distributed. Customer, Company,
+Employee, Item, and invoice values must be configured on each destination site.
+Existing values are retained when fixtures update a field definition.

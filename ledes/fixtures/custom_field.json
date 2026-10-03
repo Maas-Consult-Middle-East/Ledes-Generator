@@ -223,5 +223,75 @@
   "module": "Ledes",
   "options": "currency",
   "default": "0"
+ },
+ {
+  "doctype": "Custom Field",
+  "dt": "Sales Invoice",
+  "name": "Sales Invoice-custom_our_reference",
+  "fieldname": "custom_our_reference",
+  "label": "Our Reference",
+  "fieldtype": "Data",
+  "insert_after": "customer",
+  "module": "Ledes"
+ },
+ {
+  "doctype": "Custom Field",
+  "dt": "Sales Invoice",
+  "name": "Sales Invoice-custom_your_financial_ref",
+  "fieldname": "custom_your_financial_ref",
+  "label": "Your Financial Ref",
+  "fieldtype": "Data",
+  "insert_after": "custom_our_reference",
+  "module": "Ledes"
+ },
+ {
+  "doctype": "Custom Field",
+  "dt": "Sales Invoice",
+  "name": "Sales Invoice-custom_billing_start_date",
+  "fieldname": "custom_billing_start_date",
+  "label": "Billing Start Date",
+  "fieldtype": "Date",
+  "insert_after": "custom_your_financial_ref",
+  "module": "Ledes"
+ },
+ {
+  "doctype": "Custom Field",
+  "dt": "Sales Invoice",
+  "name": "Sales Invoice-custom_billing_end_date",
+  "fieldname": "custom_billing_end_date",
+  "label": "Billing End Date",
+  "fieldtype": "Date",
+  "insert_after": "custom_billing_start_date",
+  "module": "Ledes"
+ },
+ {
+  "doctype": "Custom Field",
+  "dt": "Sales Invoice",
+  "name": "Sales Invoice-custom_ledes_invoice_description",
+  "fieldname": "custom_ledes_invoice_description",
+  "label": "LEDES Invoice Description",
+  "fieldtype": "Small Text",
+  "insert_after": "custom_billing_end_date",
+  "module": "Ledes"
+ },
+ {
+  "doctype": "Custom Field",
+  "dt": "Sales Invoice Item",
+  "name": "Sales Invoice Item-custom_ledes_line_date",
+  "fieldname": "custom_ledes_line_date",
+  "label": "LEDES Line Date",
+  "fieldtype": "Date",
+  "insert_after": "custom_ledes_adjustment_amount",
+  "module": "Ledes"
+ },
+ {
+  "doctype": "Custom Field",
+  "dt": "Sales Invoice Item",
+  "name": "Sales Invoice Item-custom_ledes_expense_code",
+  "fieldname": "custom_ledes_expense_code",
+  "label": "LEDES Expense Code",
+  "fieldtype": "Data",
+  "insert_after": "custom_ledes_line_date",
+  "module": "Ledes"
  }
 ]
